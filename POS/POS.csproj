@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="source\Class\employeeData\EmployeeData.cs" />
     <Compile Include="source\Class\DBConfig\DBConfig.cs" />
     <Compile Include="source\Forms\Login\formLogin.cs">
       <SubType>Form</SubType>
@@ -80,5 +81,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
