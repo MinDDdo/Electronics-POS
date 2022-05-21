@@ -1,6 +1,6 @@
 ﻿namespace POS
 {
-    partial class Form1
+    partial class formLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -86,7 +86,7 @@
             this.lblSignin.TabIndex = 2;
             this.lblSignin.Text = "   Sign in";
             // 
-            // Form1
+            // formLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -99,9 +99,10 @@
             this.Controls.Add(this.txtUsername);
             this.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.Name = "Form1";
+            this.Name = "formLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.formLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
