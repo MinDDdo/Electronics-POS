@@ -40,6 +40,11 @@ namespace POS
                     EmployeeData.empID = dr[0]["emp_id"].ToString();
                     EmployeeData.empFname = dr[0]["fname"].ToString();
                     EmployeeData.empLname = dr[0]["lname"].ToString();
+
+                    DBConfig.conn.Close();
+                    var Index = new formIndex();
+                    Index.Show();
+                    this.Hide();
                 }
                 catch (Exception ex)
                 {
