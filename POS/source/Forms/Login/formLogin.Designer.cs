@@ -77,14 +77,14 @@
             // 
             // lblSignin
             // 
-            this.lblSignin.AutoSize = true;
+            this.lblSignin.BackColor = System.Drawing.Color.NavajoWhite;
             this.lblSignin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblSignin.ForeColor = System.Drawing.Color.Maroon;
+            this.lblSignin.ForeColor = System.Drawing.Color.Black;
             this.lblSignin.Location = new System.Drawing.Point(487, 422);
             this.lblSignin.Name = "lblSignin";
-            this.lblSignin.Size = new System.Drawing.Size(85, 28);
+            this.lblSignin.Size = new System.Drawing.Size(119, 34);
             this.lblSignin.TabIndex = 2;
-            this.lblSignin.Text = "Sign in";
+            this.lblSignin.Text = "   Sign in";
             // 
             // Form1
             // 
