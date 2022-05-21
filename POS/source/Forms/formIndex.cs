@@ -22,6 +22,8 @@ namespace POS
         private List<string> lsProStatust = new List<string>();
         private List<string> lsCategoryID = new List<string>();
         private List<string> lsBrandID = new List<string>();
+        private List<string> lsBrandName = new List<string>();
+        private List<string> lsCategoryName = new List<string>();
         private PictureBox[] arrImage;
         private Label[] arrProName;
         private Label[] arrProBrand;
@@ -46,6 +48,8 @@ namespace POS
             init();
             getEmpData();
             fetchProductData();
+            fetchBrandData();
+            fetchCategoryData();
             mapProductData();
         }
         private void getEmpData()
@@ -53,7 +57,7 @@ namespace POS
             lblID.Text = EmployeeData.empID;
             lblname.Text = EmployeeData.empFname;
         }
-        private void fetchProductData()
+        private void fetchBrandData()
         {
             try
             {
@@ -61,36 +65,71 @@ namespace POS
                 //Field
                 string sql;
                 var adapter = new SqlDataAdapter();
-                var productTB = new DataTable();
+                var brandTB = new DataTable();
 
-                sql = "SELECT * FROM Products";
+                sql = "SELECT * FROM Brands";
                 adapter.SelectCommand = new SqlCommand(sql, DBConfig.conn);
-                adapter.Fill(productTB);
+                adapter.Fill(brandTB);
 
-                try
+                foreach(var itm in lsBrandID)
                 {
-                    DataRow[] dr = productTB.Select();
-
-                    foreach(var itm in dr)
+                    sql = $"brand_id='{itm}'";
+                    try
                     {
-                        lsProID.Add(itm["product_id"].ToString());
-                        lsProName.Add(itm["product_name"].ToString());
-                        lsProAmount.Add(Convert.ToInt32(itm["amount"].ToString()));
-                        lsProImage.Add(itm["image_url"].ToString());
-                        lsProCost.Add(Convert.ToDouble(itm["cost_price"].ToString()));
-                        lsProSell.Add(Convert.ToDouble(itm["selling_price"].ToString()));
-                        lsProStatust.Add(itm["product_status"].ToString());
-                        lsCategoryID.Add(itm["category_id"].ToString());
-                        lsBrandID.Add(itm["brand_id"].ToString());
-                    }
+                        DataRow[] dr = brandTB.Select(sql);
 
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Error");
+                        foreach(var el in dr)
+                        {
+                            lsBrandName.Add(el["brand_name"].ToString());
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error");
+                    }
                 }
             }
             catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
+            DBConfig.conn.Close();
+        }
+        private void fetchCategoryData()
+        {
+            try
+            {
+                DBConfig.conn.Open();
+                //Field
+                string sql;
+                var adapter = new SqlDataAdapter();
+                var categoryTB = new DataTable();
+
+                sql = "SELECT * FROM Categorys";
+                adapter.SelectCommand = new SqlCommand(sql, DBConfig.conn);
+                adapter.Fill(categoryTB);
+
+                foreach (var itm in lsCategoryID)
+                {
+                    sql = $"category_id='{itm}'";
+                    try
+                    {
+                        DataRow[] dr = categoryTB.Select(sql);
+
+                        foreach (var el in dr)
+                        {
+                            lsCategoryName.Add(el["category_name"].ToString());
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error");
+                    }
+                }
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error");
             }
@@ -124,16 +163,6 @@ namespace POS
             };
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void mapProductData()
         {
             for(int i = s; i < e; i++)
@@ -141,8 +170,52 @@ namespace POS
                 arrImage[i].ImageLocation = lsProImage[i];
                 arrProName[i].Text = lsProName[i];
                 arrProPrice[i].Text = lsProSell[i].ToString("#,#.00");
-
+                arrProBrand[i].Text = lsBrandName[i];
+                arrProCate[i].Text = lsCategoryName[i];
             }
+        }
+        private void fetchProductData()
+        {
+            try
+            {
+                DBConfig.conn.Open();
+                //Field
+                string sql;
+                var adapter = new SqlDataAdapter();
+                var productTB = new DataTable();
+
+                sql = "SELECT * FROM Products";
+                adapter.SelectCommand = new SqlCommand(sql, DBConfig.conn);
+                adapter.Fill(productTB);
+
+                try
+                {
+                    DataRow[] dr = productTB.Select();
+
+                    foreach (var itm in dr)
+                    {
+                        lsProID.Add(itm["product_id"].ToString());
+                        lsProName.Add(itm["product_name"].ToString());
+                        lsProAmount.Add(Convert.ToInt32(itm["amount"].ToString()));
+                        lsProImage.Add(itm["image_url"].ToString());
+                        lsProCost.Add(Convert.ToDouble(itm["cost_price"].ToString()));
+                        lsProSell.Add(Convert.ToDouble(itm["selling_price"].ToString()));
+                        lsProStatust.Add(itm["product_status"].ToString());
+                        lsCategoryID.Add(itm["category_id"].ToString());
+                        lsBrandID.Add(itm["brand_id"].ToString());
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
+            DBConfig.conn.Close();
         }
     }
 }
