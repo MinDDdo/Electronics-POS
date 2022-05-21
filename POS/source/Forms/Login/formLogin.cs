@@ -18,7 +18,7 @@ namespace POS
             InitializeComponent();
         }
 
-        private void formLogin_Load(object sender, EventArgs e)
+        private void lblSignin_Click(object sender, EventArgs e)
         {
             try
             {
@@ -27,7 +27,7 @@ namespace POS
                 string sql;
                 var adapter = new SqlDataAdapter();
                 var empTB = new DataTable();
-                
+
                 sql = "SELECT * FROM Employees";
                 adapter.SelectCommand = new SqlCommand(sql, DBConfig.conn);
                 adapter.Fill(empTB);
@@ -40,16 +40,14 @@ namespace POS
                     EmployeeData.empID = dr[0]["emp_id"].ToString();
                     EmployeeData.empFname = dr[0]["fname"].ToString();
                     EmployeeData.empLname = dr[0]["lname"].ToString();
-                    
-
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show("Login Failed !", "Warning");
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error");
             }

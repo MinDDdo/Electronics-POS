@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{564188E5-8E8C-4252-801F-302327CCECED}</ProjectGuid>
+    <ProjectGuid>{5DB18B41-A3C8-4A3A-8AEF-EFB5264DB73A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>POS</RootNamespace>
-    <AssemblyName>POS</AssemblyName>
+    <RootNamespace>formIndex</RootNamespace>
+    <AssemblyName>formIndex</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,19 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="source\Forms\formIndex.cs">
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="source\Forms\formIndex.Designer.cs">
-      <DependentUpon>formIndex.cs</DependentUpon>
-    </Compile>
-    <Compile Include="source\Class\employeeData\EmployeeData.cs" />
-    <Compile Include="source\Class\DBConfig\DBConfig.cs" />
-    <Compile Include="source\Forms\Login\formLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="source\Forms\Login\formLogin.Designer.cs">
-      <DependentUpon>formLogin.cs</DependentUpon>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,9 +63,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="source\Forms\Login\formLogin.resx">
-      <DependentUpon>formLogin.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -87,6 +76,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

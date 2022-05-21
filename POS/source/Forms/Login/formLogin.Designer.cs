@@ -87,6 +87,7 @@
             this.lblSignin.Size = new System.Drawing.Size(119, 34);
             this.lblSignin.TabIndex = 2;
             this.lblSignin.Text = "   Sign in";
+            this.lblSignin.Click += new System.EventHandler(this.lblSignin_Click);
             // 
             // formLogin
             // 
@@ -104,7 +105,6 @@
             this.Name = "formLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            this.Load += new System.EventHandler(this.formLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
