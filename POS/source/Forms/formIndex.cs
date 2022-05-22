@@ -31,7 +31,8 @@ namespace POS
         private Label[] arrProPrice;
         private Label[] arrProAmount;
         private Label[] arrProCate;
-        private int start = 0, end = 5, st = 0;
+        private int[] arrAmount;
+        private int start = 0, end = 5, st = 0, amount_start = 0, amount_end = 5;
         public formIndex()
         {
             InitializeComponent();
@@ -171,6 +172,7 @@ namespace POS
         private void mapProductData()
         {
             st = start;
+            int num = 5;
             if(st < lsProImage.Count)
             {
                 for (int i = 0; i < 5; i++)
@@ -184,38 +186,61 @@ namespace POS
                         arrProPrice[i].Text = lsProSell[st].ToString("#,#.00");
                         arrProBrand[i].Text = lsBrandName[st];
                         arrProCate[i].Text = lsCategoryName[st];
+                        num--;
                     }
                     st++;
+                }
+                int j = 0;
+                for(int i = amount_start; i < amount_end - num; i++)
+                {
+                    arrProAmount[j].Text = arrAmount[i].ToString();
+                    j++;
                 }
             }
         }
 
         private void Del1_Click(object sender, EventArgs e)
         {
-            
+            delLbl(Del1);
         }
 
         private void Del2_Click(object sender, EventArgs e)
         {
-
+            delLbl(Del2);
         }
 
         private void Del3_Click(object sender, EventArgs e)
         {
-
+            delLbl(Del3);
         }
 
         private void Del4_Click(object sender, EventArgs e)
         {
-
+            delLbl(Del4);
         }
 
         private void Del5_Click(object sender, EventArgs e)
         {
-
+            delLbl(Del5);
         }
-        private void delClick(Label lbl)
+        
+        private void delAmount(int idx)
         {
+            if (Convert.ToInt32(arrProAmount[idx].Text) > 0)
+            {
+                int i = amount_start + idx;
+                arrProAmount[idx].Text = (Convert.ToInt32(arrProAmount[idx].Text) - 1) + "";
+                arrAmount[i] = (Convert.ToInt32(arrProAmount[idx].Text));
+            }
+        }
+        private void addAmount(int idx)
+        {
+            if (Convert.ToInt32(arrProAmount[idx].Text) < lsProAmount[idx])
+            {
+                int i = amount_start + idx;
+                arrProAmount[idx].Text = (Convert.ToInt32(arrProAmount[idx].Text) + 1) + "";
+                arrAmount[i] = (Convert.ToInt32(arrProAmount[idx].Text));
+            }
 
         }
         private int convertIndex(Label lbl)
@@ -231,8 +256,44 @@ namespace POS
                 page.Text = (Convert.ToInt32(page.Text) - 1) + "";
                 start -= 5;
                 end -= 5;
+                amount_start -= 5;
+                amount_end -= 5;
                 mapProductData();
             }
+        }
+        private void delLbl(Label lbl)
+        {
+            int idx = convertIndex(lbl); ;
+            delAmount(idx);
+        }
+        private void addLbl(Label lbl)
+        {
+            int idx = convertIndex(lbl);
+            addAmount(idx);
+        }
+        private void Add1_Click(object sender, EventArgs e)
+        {
+            addLbl(Add1);
+        }
+
+        private void Add2_Click(object sender, EventArgs e)
+        {
+            addLbl(Add2);
+        }
+
+        private void Add3_Click(object sender, EventArgs e)
+        {
+            addLbl(Add3);
+        }
+
+        private void Add4_Click(object sender, EventArgs e)
+        {
+            addLbl(Add4);
+        }
+
+        private void Add5_Click(object sender, EventArgs e)
+        {
+            addLbl(Add5);
         }
 
         private void next_Click(object sender, EventArgs e)
@@ -242,6 +303,8 @@ namespace POS
                 page.Text = (Convert.ToInt32(page.Text) + 1) + "";
                 start += 5;
                 end += 5;
+                amount_start += 5;
+                amount_end += 5;
                 mapProductData();
             }
         }
@@ -276,7 +339,7 @@ namespace POS
                         lsCategoryID.Add(itm["category_id"].ToString());
                         lsBrandID.Add(itm["brand_id"].ToString());
                     }
-
+                    arrAmount = new int[lsProID.Count];
                 }
                 catch (Exception ex)
                 {

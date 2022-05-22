@@ -253,7 +253,9 @@
             this.Add1.Name = "Add1";
             this.Add1.Size = new System.Drawing.Size(33, 34);
             this.Add1.TabIndex = 4;
+            this.Add1.Tag = "0";
             this.Add1.Text = " +";
+            this.Add1.Click += new System.EventHandler(this.Add1_Click);
             // 
             // Del1
             // 
@@ -369,7 +371,9 @@
             this.Add5.Name = "Add5";
             this.Add5.Size = new System.Drawing.Size(33, 34);
             this.Add5.TabIndex = 4;
+            this.Add5.Tag = "4";
             this.Add5.Text = " +";
+            this.Add5.Click += new System.EventHandler(this.Add5_Click);
             // 
             // Del5
             // 
@@ -471,7 +475,9 @@
             this.Add4.Name = "Add4";
             this.Add4.Size = new System.Drawing.Size(33, 34);
             this.Add4.TabIndex = 4;
+            this.Add4.Tag = "3";
             this.Add4.Text = " +";
+            this.Add4.Click += new System.EventHandler(this.Add4_Click);
             // 
             // Del4
             // 
@@ -573,7 +579,9 @@
             this.Add3.Name = "Add3";
             this.Add3.Size = new System.Drawing.Size(33, 34);
             this.Add3.TabIndex = 4;
+            this.Add3.Tag = "2";
             this.Add3.Text = " +";
+            this.Add3.Click += new System.EventHandler(this.Add3_Click);
             // 
             // Del3
             // 
@@ -675,7 +683,9 @@
             this.Add2.Name = "Add2";
             this.Add2.Size = new System.Drawing.Size(33, 34);
             this.Add2.TabIndex = 4;
+            this.Add2.Tag = "1";
             this.Add2.Text = " +";
+            this.Add2.Click += new System.EventHandler(this.Add2_Click);
             // 
             // Del2
             // 
@@ -733,7 +743,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label9.Location = new System.Drawing.Point(637, 73);
+            this.label9.Location = new System.Drawing.Point(625, 73);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(86, 25);
             this.label9.TabIndex = 5;
