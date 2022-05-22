@@ -90,6 +90,10 @@
             this.back = new System.Windows.Forms.Label();
             this.next = new System.Windows.Forms.Label();
             this.page = new System.Windows.Forms.Label();
+            this.lblProduct = new System.Windows.Forms.Label();
+            this.lblSelectAll = new System.Windows.Forms.Label();
+            this.lblClear = new System.Windows.Forms.Label();
+            this.lblConfirm = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panellist1.SuspendLayout();
@@ -817,12 +821,65 @@
             this.page.Text = "1";
             this.page.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // lblProduct
+            // 
+            this.lblProduct.AutoSize = true;
+            this.lblProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lblProduct.Location = new System.Drawing.Point(21, 29);
+            this.lblProduct.Name = "lblProduct";
+            this.lblProduct.Size = new System.Drawing.Size(126, 25);
+            this.lblProduct.TabIndex = 9;
+            this.lblProduct.Text = "Product(---)";
+            // 
+            // lblSelectAll
+            // 
+            this.lblSelectAll.BackColor = System.Drawing.Color.DimGray;
+            this.lblSelectAll.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblSelectAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lblSelectAll.ForeColor = System.Drawing.Color.White;
+            this.lblSelectAll.Location = new System.Drawing.Point(397, 20);
+            this.lblSelectAll.Name = "lblSelectAll";
+            this.lblSelectAll.Size = new System.Drawing.Size(214, 34);
+            this.lblSelectAll.TabIndex = 4;
+            this.lblSelectAll.Text = "         Select All";
+            this.lblSelectAll.Click += new System.EventHandler(this.lblSelectAll_Click);
+            // 
+            // lblClear
+            // 
+            this.lblClear.BackColor = System.Drawing.Color.DimGray;
+            this.lblClear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lblClear.ForeColor = System.Drawing.Color.White;
+            this.lblClear.Location = new System.Drawing.Point(631, 20);
+            this.lblClear.Name = "lblClear";
+            this.lblClear.Size = new System.Drawing.Size(147, 34);
+            this.lblClear.TabIndex = 10;
+            this.lblClear.Text = "      Clear";
+            this.lblClear.Click += new System.EventHandler(this.lblClear_Click);
+            // 
+            // lblConfirm
+            // 
+            this.lblConfirm.BackColor = System.Drawing.Color.DimGray;
+            this.lblConfirm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lblConfirm.ForeColor = System.Drawing.Color.White;
+            this.lblConfirm.Location = new System.Drawing.Point(579, 592);
+            this.lblConfirm.Name = "lblConfirm";
+            this.lblConfirm.Size = new System.Drawing.Size(214, 34);
+            this.lblConfirm.TabIndex = 11;
+            this.lblConfirm.Text = "         Confirm";
+            this.lblConfirm.Click += new System.EventHandler(this.lblConfirm_Click);
+            // 
             // formIndex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1098, 634);
+            this.Controls.Add(this.lblConfirm);
+            this.Controls.Add(this.lblClear);
+            this.Controls.Add(this.lblSelectAll);
+            this.Controls.Add(this.lblProduct);
             this.Controls.Add(this.page);
             this.Controls.Add(this.next);
             this.Controls.Add(this.back);
@@ -926,5 +983,9 @@
         private System.Windows.Forms.Label back;
         private System.Windows.Forms.Label next;
         private System.Windows.Forms.Label page;
+        private System.Windows.Forms.Label lblProduct;
+        private System.Windows.Forms.Label lblSelectAll;
+        private System.Windows.Forms.Label lblClear;
+        private System.Windows.Forms.Label lblConfirm;
     }
 }

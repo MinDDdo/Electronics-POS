@@ -53,6 +53,7 @@ namespace POS
             fetchBrandData();
             fetchCategoryData();
             mapProductData();
+            lblProduct.Text = $"Product : {lsProID.Count}";
         }
         private void getEmpData()
         {
@@ -286,15 +287,18 @@ namespace POS
             addLbl(Add3);
         }
 
+
         private void Add4_Click(object sender, EventArgs e)
         {
             addLbl(Add4);
         }
 
+
         private void Add5_Click(object sender, EventArgs e)
         {
             addLbl(Add5);
         }
+
 
         private void next_Click(object sender, EventArgs e)
         {
@@ -351,6 +355,54 @@ namespace POS
                 MessageBox.Show(ex.Message, "Error");
             }
             DBConfig.conn.Close();
+        }
+        private void lblSelectAll_Click(object sender, EventArgs e)
+        {
+            for(int i = 0; i < arrAmount.Length; i++)
+            {
+                if(arrAmount[i] == 0)
+                {
+                    arrAmount[i] = 1;
+                }
+            }
+            mapProductData();
+        }
+        private void lblClear_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < arrAmount.Length; i++)
+            {
+                if (arrAmount[i] != 0)
+                {
+                    arrAmount[i] = 0;
+                }
+            }
+            mapProductData();
+        }
+        private void lblConfirm_Click(object sender, EventArgs e)
+        {
+            int i = 0;
+            bool unselect = true;
+            foreach(var itm in arrAmount)
+            {
+                if(itm > 0)
+                {
+                    unselect = false;
+                    ProductData.ProID.Add(lsProID[i]);
+                    ProductData.amount.Add(lsProAmount[i] - itm);
+
+                    ProductData.Proname.Add(lsProName[i]);
+                    ProductData.Proamount.Add(itm);
+                }
+                i++;
+            }
+            if (unselect)
+            {
+                MessageBox.Show("Please Select item.", "Warning");
+            }
+            else
+            {
+
+            }
         }
     }
 }
