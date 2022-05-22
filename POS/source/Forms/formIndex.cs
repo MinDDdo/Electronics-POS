@@ -13,6 +13,7 @@ namespace POS
 {
     public partial class formIndex : Form
     {
+        private Panel[] panelList;
         private List<string> lsProID = new List<string>();
         private List<string> lsProName = new List<string>();
         private List<int> lsProAmount = new List<int>();
@@ -30,7 +31,7 @@ namespace POS
         private Label[] arrProPrice;
         private Label[] arrProAmount;
         private Label[] arrProCate;
-        private int s = 0, e = 5;
+        private int start = 0, end = 5, st = 0;
         public formIndex()
         {
             InitializeComponent();
@@ -161,19 +162,90 @@ namespace POS
             {
                 Cate1,Cate2,Cate3,Cate4,Cate5
             };
+            panelList = new Panel[5]
+            {
+                panellist1,panellist2,panellist3,panellist4,panellist5
+            };
         }
 
         private void mapProductData()
         {
-            for(int i = s; i < e; i++)
+            st = start;
+            if(st < lsProImage.Count)
             {
-                arrImage[i].ImageLocation = lsProImage[i];
-                arrProName[i].Text = lsProName[i];
-                arrProPrice[i].Text = lsProSell[i].ToString("#,#.00");
-                arrProBrand[i].Text = lsBrandName[i];
-                arrProCate[i].Text = lsCategoryName[i];
+                for (int i = 0; i < 5; i++)
+                {
+                    panelList[i].Visible = false;
+                    if (st < lsProImage.Count)
+                    {
+                        panelList[i].Visible = true;
+                        arrImage[i].ImageLocation = lsProImage[st];
+                        arrProName[i].Text = lsProName[st];
+                        arrProPrice[i].Text = lsProSell[st].ToString("#,#.00");
+                        arrProBrand[i].Text = lsBrandName[st];
+                        arrProCate[i].Text = lsCategoryName[st];
+                    }
+                    st++;
+                }
             }
         }
+
+        private void Del1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Del2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Del3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Del4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Del5_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void delClick(Label lbl)
+        {
+
+        }
+        private int convertIndex(Label lbl)
+        {
+            int idx = Convert.ToInt32(lbl.Tag.ToString());
+            return idx;
+        }
+
+        private void back_Click(object sender, EventArgs e)
+        {
+            if(start != 0)
+            {
+                page.Text = (Convert.ToInt32(page.Text) - 1) + "";
+                start -= 5;
+                end -= 5;
+                mapProductData();
+            }
+        }
+
+        private void next_Click(object sender, EventArgs e)
+        {
+            if(end <= lsProImage.Count)
+            {
+                page.Text = (Convert.ToInt32(page.Text) + 1) + "";
+                start += 5;
+                end += 5;
+                mapProductData();
+            }
+        }
+
         private void fetchProductData()
         {
             try

@@ -87,6 +87,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.back = new System.Windows.Forms.Label();
+            this.next = new System.Windows.Forms.Label();
+            this.page = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panellist1.SuspendLayout();
@@ -108,9 +111,9 @@
             this.groupBox1.Controls.Add(this.lblMember);
             this.groupBox1.Controls.Add(this.lblProducts);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.groupBox1.Location = new System.Drawing.Point(814, 142);
+            this.groupBox1.Location = new System.Drawing.Point(814, 147);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(260, 418);
+            this.groupBox1.Size = new System.Drawing.Size(260, 426);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Menu";
@@ -195,7 +198,7 @@
             this.lblLogout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.lblLogout.ForeColor = System.Drawing.Color.White;
-            this.lblLogout.Location = new System.Drawing.Point(814, 571);
+            this.lblLogout.Location = new System.Drawing.Point(814, 584);
             this.lblLogout.Name = "lblLogout";
             this.lblLogout.Size = new System.Drawing.Size(259, 34);
             this.lblLogout.TabIndex = 3;
@@ -217,6 +220,7 @@
             this.panellist1.Name = "panellist1";
             this.panellist1.Size = new System.Drawing.Size(752, 90);
             this.panellist1.TabIndex = 4;
+            this.panellist1.Visible = false;
             // 
             // Cate1
             // 
@@ -261,7 +265,9 @@
             this.Del1.Name = "Del1";
             this.Del1.Size = new System.Drawing.Size(33, 34);
             this.Del1.TabIndex = 4;
+            this.Del1.Tag = "0";
             this.Del1.Text = " -";
+            this.Del1.Click += new System.EventHandler(this.Del1_Click);
             // 
             // ProB1
             // 
@@ -310,7 +316,7 @@
             this.panel3.Controls.Add(this.panellist3);
             this.panel3.Controls.Add(this.panellist2);
             this.panel3.Controls.Add(this.panellist1);
-            this.panel3.Location = new System.Drawing.Point(12, 90);
+            this.panel3.Location = new System.Drawing.Point(12, 106);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(782, 481);
             this.panel3.TabIndex = 4;
@@ -330,6 +336,7 @@
             this.panellist5.Name = "panellist5";
             this.panellist5.Size = new System.Drawing.Size(752, 90);
             this.panellist5.TabIndex = 8;
+            this.panellist5.Visible = false;
             // 
             // Cate5
             // 
@@ -374,7 +381,9 @@
             this.Del5.Name = "Del5";
             this.Del5.Size = new System.Drawing.Size(33, 34);
             this.Del5.TabIndex = 4;
+            this.Del5.Tag = "4";
             this.Del5.Text = " -";
+            this.Del5.Click += new System.EventHandler(this.Del5_Click);
             // 
             // ProB5
             // 
@@ -429,6 +438,7 @@
             this.panellist4.Name = "panellist4";
             this.panellist4.Size = new System.Drawing.Size(752, 90);
             this.panellist4.TabIndex = 7;
+            this.panellist4.Visible = false;
             // 
             // Cate4
             // 
@@ -473,7 +483,9 @@
             this.Del4.Name = "Del4";
             this.Del4.Size = new System.Drawing.Size(33, 34);
             this.Del4.TabIndex = 4;
+            this.Del4.Tag = "3";
             this.Del4.Text = " -";
+            this.Del4.Click += new System.EventHandler(this.Del4_Click);
             // 
             // ProB4
             // 
@@ -528,6 +540,7 @@
             this.panellist3.Name = "panellist3";
             this.panellist3.Size = new System.Drawing.Size(752, 90);
             this.panellist3.TabIndex = 7;
+            this.panellist3.Visible = false;
             // 
             // Cate3
             // 
@@ -572,7 +585,9 @@
             this.Del3.Name = "Del3";
             this.Del3.Size = new System.Drawing.Size(33, 34);
             this.Del3.TabIndex = 4;
+            this.Del3.Tag = "2";
             this.Del3.Text = " -";
+            this.Del3.Click += new System.EventHandler(this.Del3_Click);
             // 
             // ProB3
             // 
@@ -627,6 +642,7 @@
             this.panellist2.Name = "panellist2";
             this.panellist2.Size = new System.Drawing.Size(752, 90);
             this.panellist2.TabIndex = 7;
+            this.panellist2.Visible = false;
             // 
             // Cate2
             // 
@@ -671,7 +687,9 @@
             this.Del2.Name = "Del2";
             this.Del2.Size = new System.Drawing.Size(33, 34);
             this.Del2.TabIndex = 4;
+            this.Del2.Tag = "1";
             this.Del2.Text = " -";
+            this.Del2.Click += new System.EventHandler(this.Del2_Click);
             // 
             // ProB2
             // 
@@ -715,7 +733,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label9.Location = new System.Drawing.Point(637, 57);
+            this.label9.Location = new System.Drawing.Point(637, 73);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(86, 25);
             this.label9.TabIndex = 5;
@@ -726,7 +744,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label8.Location = new System.Drawing.Point(389, 57);
+            this.label8.Location = new System.Drawing.Point(389, 73);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(69, 25);
             this.label8.TabIndex = 5;
@@ -736,7 +754,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label7.Location = new System.Drawing.Point(142, 57);
+            this.label7.Location = new System.Drawing.Point(142, 73);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(148, 25);
             this.label7.TabIndex = 1;
@@ -746,11 +764,48 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label6.Location = new System.Drawing.Point(486, 57);
+            this.label6.Location = new System.Drawing.Point(486, 73);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(61, 25);
             this.label6.TabIndex = 1;
             this.label6.Text = "Price";
+            // 
+            // back
+            // 
+            this.back.BackColor = System.Drawing.Color.DimGray;
+            this.back.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.back.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.back.ForeColor = System.Drawing.Color.White;
+            this.back.Location = new System.Drawing.Point(33, 592);
+            this.back.Name = "back";
+            this.back.Size = new System.Drawing.Size(49, 34);
+            this.back.TabIndex = 6;
+            this.back.Text = "  <";
+            this.back.Click += new System.EventHandler(this.back_Click);
+            // 
+            // next
+            // 
+            this.next.BackColor = System.Drawing.Color.DimGray;
+            this.next.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.next.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.next.ForeColor = System.Drawing.Color.White;
+            this.next.Location = new System.Drawing.Point(167, 592);
+            this.next.Name = "next";
+            this.next.Size = new System.Drawing.Size(50, 34);
+            this.next.TabIndex = 7;
+            this.next.Text = "  >";
+            this.next.Click += new System.EventHandler(this.next_Click);
+            // 
+            // page
+            // 
+            this.page.AutoSize = true;
+            this.page.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.page.Location = new System.Drawing.Point(114, 597);
+            this.page.Name = "page";
+            this.page.Size = new System.Drawing.Size(24, 25);
+            this.page.TabIndex = 8;
+            this.page.Text = "1";
+            this.page.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // formIndex
             // 
@@ -758,6 +813,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1098, 634);
+            this.Controls.Add(this.page);
+            this.Controls.Add(this.next);
+            this.Controls.Add(this.back);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.lblLogout);
             this.Controls.Add(this.panel1);
@@ -855,5 +913,8 @@
         private System.Windows.Forms.Label Cate4;
         private System.Windows.Forms.Label Cate3;
         private System.Windows.Forms.Label Cate2;
+        private System.Windows.Forms.Label back;
+        private System.Windows.Forms.Label next;
+        private System.Windows.Forms.Label page;
     }
 }
